@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="index_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="styles.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="section" class="slide level2" data-background="#d3d3d3">
+<h2></h2>
+<h2 style="color:#0047AB">
+Introduction to Epirecipes
+</h2>
+<h2 style="color:#000000">
+Simon Frost
+</h2>
+<h4 style="color:#000000">
+Professor <span class="citation" data-cites="Cambridge_Uni">@Cambridge_Uni</span>
+</h4>
+<h4 style="color:#000000">
+Turing Fellow <span class="citation" data-cites="turinginst">@turinginst</span>
+</h4>
+<p><br></p>
+<p><img height="100px" style="border:0px;margin: 0px 20px;" src="img/cu.png"> <img height="100px" style="border:0px;margin: 0px 20px;" src="img/ati.jpg"></p>
+</section>
+<section id="acknowledgements" class="slide level2">
+<h2>Acknowledgements</h2>
+<ul>
+<li>Cambridge
+<ul>
+<li>Dr. Allyson Walsh</li>
+<li>Dr. Lydia Drumright</li>
+<li>Prof. James Wood</li>
+</ul></li>
+<li>ATI
+<ul>
+<li>Jade Thompson</li>
+</ul></li>
+</ul>
+</section>
+<section id="sponsors" class="slide level2">
+<h2>Sponsors</h2>
+<div class="left">
+<center>
+<img src="img/ati.jpg" alt="The Alan Turing Institute" height="64"> <br> <img src="img/cid.png" alt="Cambridge Infectious Diseases" height="64"> <br> <img src="img/ccdd.png" alt="CCDD" height="64"> <br> <img src="img/midas.png" alt="MIDAS" height="64">
+</center>
+</div>
+<div class="right">
+<center>
+<img src="img/recon.png" alt="R Epidemics Consortium" height="64"> <br> <img src="img/julia-computing.svg" alt="Julia Computing" height="128"> <br> <img src="img/Microsoft.png" alt="Microsoft" height="128">
+</center>
+</div>
+</section>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<ul>
+<li>Mathematical models of infectious disease transmission are widely used in research, policy-making etc.</li>
+<li>Field is becoming increasing computational
+<ul>
+<li>Simple to complex models</li>
+<li>Analytical to simulation</li>
+<li>Deterministic to stochastic</li>
+</ul></li>
+<li>Relatively inexpensive
+<ul>
+<li>Well suited for junior researchers</li>
+<li>Allows contributions from resource-limited settings</li>
+</ul></li>
+<li>Need capacity building and skill development</li>
+</ul>
+</section>
+<section id="current-problems" class="slide level2">
+<h2>Current problems</h2>
+<ul>
+<li>Efforts to increase capacity in disease modeling fall short
+<ul>
+<li>Focus on the same, basic building blocks</li>
+</ul></li>
+<li>Models are often not ‘open’
+<ul>
+<li>Model building process is hidden</li>
+<li>Details and/or implementation may not be available</li>
+<li>Hinders reproducibility - esp. important in policy making</li>
+</ul></li>
+<li>Models are often restricted to a single computer language
+<ul>
+<li>May/may not be the best choice</li>
+<li>Limits extending models by others</li>
+</ul></li>
+<li>Not ‘plug and play’
+<ul>
+<li>May involve installing an extensive toolchain</li>
+</ul></li>
+</ul>
+</section>
+<section id="keeling-and-rohani-2007" class="slide level2">
+<h2>Keeling and Rohani (2007)</h2>
+<div class="left">
+<p><img src="img/kr07.jpg" /></p>
+</div>
+<div class="right">
+<ul>
+<li>Good selection of conceptual models</li>
+<li>Examples mainly in C/C++ and Fortran
+<ul>
+<li>Some in Python</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="vynnycky-and-white-2010" class="slide level2">
+<h2>Vynnycky and White (2010)</h2>
+<div class="left">
+<p><img src="img/vw10.jpg" /></p>
+</div>
+<div class="right">
+<ul>
+<li>Focuses on introductory models</li>
+<li>Examples in MS Excel and Berkeley Madonna</li>
+</ul>
+</div>
+</section>
+<section id="martcheva-2015" class="slide level2">
+<h2>Martcheva (2015)</h2>
+<div class="left">
+<p><img src="img/martcheva15.jpg" /></p>
+</div>
+<div class="right">
+<ul>
+<li>Some examples in Matlab</li>
+</ul>
+</div>
+</section>
+<section id="kiss-miller-simon-2017" class="slide level2">
+<h2>Kiss, Miller &amp; Simon (2017)</h2>
+<div class="left">
+<p><img src="img/kiss17.jpg" /></p>
+</div>
+<div class="right">
+<ul>
+<li>Focuses on network models</li>
+<li>Examples in Python</li>
+</ul>
+</div>
+</section>
+<section id="li-2018" class="slide level2">
+<h2>Li (2018)</h2>
+<div class="left">
+<p><img src="img/li18.jpg" /></p>
+</div>
+<div class="right">
+<ul>
+<li>Only contains a single example of code for parameter estimation in Matlab</li>
+</ul>
+</div>
+</section>
+<section id="courses" class="slide level2">
+<h2>Courses</h2>
+<ul>
+<li>There are a number of excellent courses in disease modeling in the UK alone:
+<ul>
+<li>Imperial</li>
+<li>Cambridge</li>
+<li>LSHTM</li>
+</ul></li>
+<li>Material is often closed</li>
+<li>Typically adopt a single language for practicals</li>
+</ul>
+</section>
+<section id="why-implementation-matters" class="slide level2">
+<h2>Why implementation matters</h2>
+<ul>
+<li>Cost of commercial packages
+<ul>
+<li>Matlab: &gt;£200/yr</li>
+<li>Mathematica: c. £1000/yr</li>
+<li>Berkeley Madonna: &gt; £200</li>
+</ul></li>
+</ul>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Courses and textbooks are limited in their use of examples:
+<ul>
+<li>Number</li>
+<li>Diversity</li>
+<li>Implementation
+<ul>
+<li>Access</li>
+<li>Language</li>
+</ul></li>
+</ul></li>
+<li>Publications present ‘state of the art’ models, but may not have an implementation, especially if not recent</li>
+</ul>
+</section>
+<section id="aims" class="slide level2">
+<h2>Aims</h2>
+<ul>
+<li>To complement existing resources by developing an online ‘cookbook’ of epidemiological models</li>
+<li>Objectives for models
+<ul>
+<li>Illustrate different diseases, ‘tricks’, etc.</li>
+<li>Open source</li>
+<li>Implemented in multiple (free) computer languages</li>
+<li>Can be run via a web browser</li>
+</ul></li>
+</ul>
+</section>
+<section id="infrastructure" class="slide level2">
+<h2>Infrastructure</h2>
+<ul>
+<li>Textbook is composed of multiple, separate Jupyter notebooks</li>
+<li>Web-based interface to Jupyter notebooks with ‘kernels’ for multiple languages</li>
+<li>Running on a virtual server on Microsoft Azure</li>
+<li>Available to download and run locally with minimal dependencies</li>
+</ul>
+</section>
+<section id="notebooks" class="slide level2">
+<h2>Notebooks</h2>
+<ul>
+<li><em>Jupyter notebooks</em>
+<ul>
+<li>Many languages</li>
+</ul></li>
+<li>R notebooks
+<ul>
+<li>R, Python, bash</li>
+</ul></li>
+<li>Observable
+<ul>
+<li>Javascript</li>
+</ul></li>
+<li>Iodide
+<ul>
+<li>Javascript, Python</li>
+</ul></li>
+</ul>
+</section>
+<section id="results-of-participant-survey" class="slide level2">
+<h2>Results of participant survey</h2>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="672" border:0px; style="display: block; margin: auto;" /></p>
+</section>
+<section id="proficiency-in-first-language" class="slide level2">
+<h2>Proficiency in first language</h2>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="672" border:0px; style="display: block; margin: auto;" /></p>
+</section>
+<section id="second-preference" class="slide level2">
+<h2>Second preference</h2>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="672" border:0px; style="display: block; margin: auto;" /></p>
+</section>
+<section id="kernels-included-in-epirecipes-to-date" class="slide level2">
+<h2>Kernels included in epirecipes to date</h2>
+<ul>
+<li>Python</li>
+<li>R</li>
+<li>Julia</li>
+<li>Octave</li>
+<li>Scilab</li>
+<li>Javascript</li>
+<li>C</li>
+<li>Fortran</li>
+<li>C++</li>
+</ul>
+</section>
+<section id="sir-model" class="slide level2">
+<h2>SIR model</h2>
+<ul>
+<li>Let’s take the standard ‘susceptible-infected-recovered’ model</li>
+</ul>
+<p><span class="math display">\[
+\frac{dS(t)}{dt}  = -\beta S(t) I(t)\\
+\frac{dI(t)}{dt}  = \beta S(t) I(t)- \gamma I(t)\\
+\frac{dR(t)}{dt}  = \gamma I(t)
+\]</span></p>
+</section>
+<section id="r-vs-python" class="slide level2">
+<h2>R vs Python</h2>
+<div>
+<div class="left">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sir_ode &lt;-<span class="st"> </span><span class="cf">function</span>(times,init,parms){
+  <span class="kw">with</span>(<span class="kw">as.list</span>(<span class="kw">c</span>(parms,init)), {
+  <span class="co"># ODEs</span>
+  dS &lt;-<span class="st"> </span><span class="op">-</span>beta<span class="op">*</span>S<span class="op">*</span>I
+  dI &lt;-<span class="st"> </span>beta<span class="op">*</span>S<span class="op">*</span>I<span class="op">-</span>gamma<span class="op">*</span>I
+  dR &lt;-<span class="st"> </span>gamma<span class="op">*</span>I
+  <span class="kw">list</span>(<span class="kw">c</span>(dS,dI,dR))
+  })
+}
+parms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">beta=</span><span class="fl">0.1</span>,<span class="dt">gamma=</span><span class="fl">0.05</span>)
+init &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">S=</span><span class="fl">0.99</span>,<span class="dt">I=</span><span class="fl">0.01</span>,<span class="dt">R=</span><span class="dv">0</span>) 
+times &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dt">length.out=</span><span class="dv">2001</span>)
+sir_out &lt;-<span class="st"> </span><span class="kw">lsoda</span>(init,
+                 times,
+                 sir_ode,
+                 parms)</code></pre></div>
+</div>
+<div class="right">
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> sir_ode(times,init,parms):
+    b, g <span class="op">=</span> parms
+    S,I,R <span class="op">=</span> init
+    <span class="co"># ODEs</span>
+    dS <span class="op">=</span> <span class="op">-</span>b<span class="op">*</span>S<span class="op">*</span>I
+    dI <span class="op">=</span> b<span class="op">*</span>S<span class="op">*</span>I<span class="op">-</span>g<span class="op">*</span>I
+    dR <span class="op">=</span> g<span class="op">*</span>I
+    <span class="cf">return</span> [dS,dI,dR]
+parms <span class="op">=</span> [<span class="fl">0.1</span>,<span class="fl">0.05</span>]
+init <span class="op">=</span> [<span class="fl">0.99</span>,<span class="fl">0.01</span>,<span class="dv">0</span>]
+times <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dv">2001</span>)
+sir_sol <span class="op">=</span> solve_ivp(
+    fun<span class="op">=</span><span class="kw">lambda</span> t, y: sir_ode(t, y, parms),
+    t_span<span class="op">=</span>[<span class="bu">min</span>(times),<span class="bu">max</span>(times)],
+    y0<span class="op">=</span>init,
+    t_eval<span class="op">=</span>times)</code></pre></div>
+</div>
+</div>
+</section>
+<section id="objectives-for-the-workshop" class="slide level2">
+<h2>Objectives for the workshop</h2>
+<ul>
+<li>I would like each of you to implement at least one model, ideally:
+<ul>
+<li>A brief description of the model
+<ul>
+<li>Ideally with equations and links</li>
+</ul></li>
+<li>A reference implementation in your favourite language
+<ul>
+<li>Ideally with graphical output (if appropriate), a test, and a benchmark</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="which-models" class="slide level2">
+<h2>Which models?</h2>
+<ul>
+<li>Your own</li>
+<li>Textbooks</li>
+<li>Literature search</li>
+<li>‘Shopping list’ at <a href="https://github.com/epirecipes/shopping-list/issues" class="uri">https://github.com/epirecipes/shopping-list/issues</a></li>
+</ul>
+</section>
+<section id="results-from-survey" class="slide level2">
+<h2>Results from survey</h2>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="672" border:0px; style="display: block; margin: auto;" /></p>
+</section>
+<section id="potential-concepts" class="slide level2">
+<h2>Potential concepts</h2>
+<ul>
+<li>Deterministic models</li>
+<li>Stochastic (demographic/environmental) models</li>
+<li>Age structured models</li>
+<li>Spatial models</li>
+<li>Network models</li>
+<li>Non-exponential passage times</li>
+<li>Disease-specific models</li>
+</ul>
+</section>
+<section id="final-outcomes" class="slide level2">
+<h2>Final outcomes</h2>
+<ul>
+<li>Incorporation of notebooks into <a href="https://epirecip.es/epicookbook" class="uri">https://epirecip.es/epicookbook</a>
+<ul>
+<li>Each with individual attribution</li>
+</ul></li>
+<li>Group publication:
+<ul>
+<li>Journal of Open Source Education</li>
+<li>F1000 Research</li>
+</ul></li>
+</ul>
+</section>
+<section id="after-wednesday" class="slide level2">
+<h2>After Wednesday?</h2>
+<ul>
+<li>Explore getting DOIs for individual notebooks</li>
+<li>Continued contributions:
+<ul>
+<li>Papers</li>
+<li>Part of lab meeting</li>
+<li>Part of classes</li>
+</ul></li>
+<li>Future workshops?
+<ul>
+<li>Network models</li>
+<li>Agent-based models</li>
+</ul></li>
+</ul>
+</section>
+<section id="facilitators" class="slide level2">
+<h2>Facilitators</h2>
+<ul>
+<li>James Lester
+<ul>
+<li>Python, R, Matlab</li>
+</ul></li>
+<li>Gerry Tonkin-Hill
+<ul>
+<li>Python, R, Matlab, C++</li>
+</ul></li>
+<li>Zhian Kamvar
+<ul>
+<li>R</li>
+</ul></li>
+<li>Rich Fitzjohn
+<ul>
+<li>R</li>
+</ul></li>
+<li>Chris Rackauckas
+<ul>
+<li>Julia</li>
+</ul></li>
+<li>Myself
+<ul>
+<li>Everything else…</li>
+</ul></li>
+</ul>
+<p>…plus anyone else who wants to help</p>
+</section>
+<section id="agenda-for-monday" class="slide level2">
+<h2>Agenda for Monday</h2>
+<ul>
+<li>10:00-10:30: Introduction: Simon Frost</li>
+<li>10:30-11:00: Jupyter/Observable notebooks: Simon Frost</li>
+<li>11:00-11:30: Coffee break</li>
+<li>11:30-11:45: R Epidemics Consortium: Zhian Kamvar</li>
+<li>11:45-12:00: Modeling in R: Rich FitzJohn</li>
+<li>12:00-12:30: Modeling in Julia: Chris Rackauckas</li>
+<li>12:30-13:30: Lunch</li>
+<li>13:30-14:00: Testing the platform</li>
+<li>14:00-15:00: Coding!</li>
+<li>15:00-15:30: Coffee break</li>
+<li>15:30-17:00: More coding</li>
+</ul>
+</section>
+<section id="social-events" class="slide level2">
+<h2>Social events</h2>
+<ul>
+<li>Monday 17:00-19:00: Drinks reception at ATI</li>
+<li>Tuesday TBD: Dinner at Drake and Morgan</li>
+</ul>
+</section>
+<section id="during-the-workshop" class="slide level2">
+<h2>During the workshop</h2>
+<ul>
+<li>Be social:
+<ul>
+<li>Twitter: <code>#epirecipes2018</code> and follow <code>@epirecipes</code></li>
+</ul></li>
+<li>Be respectful:
+<ul>
+<li>ATI Code of Conduct: <a href="https://www.turing.ac.uk/sites/default/files/2018-07/events_-_delegate_code_of_conduct_policy_v1.pdf" class="uri">https://www.turing.ac.uk/sites/default/files/2018-07/events_-_delegate_code_of_conduct_policy_v1.pdf</a></li>
+<li>DSG Code of Conduct: <a href="http://bit.ly/DSGCodeOfConduct" class="uri">http://bit.ly/DSGCodeOfConduct</a></li>
+</ul></li>
+<li>Be inclusive:
+<ul>
+<li>Eric Holscher’s ‘PacMan rule’</li>
+</ul></li>
+</ul>
+<p><img src="img/pacman.png" style="width:15.0%" /></p>
+</section>
+<section id="thanks" class="slide level2">
+<h2>Thanks!</h2>
+<p><img height="100px" style="border:0px;margin: 0px 20px;" src="img/cu.png"> <img height="100px" style="border:0px;margin: 0px 20px;" src="img/ati.jpg"></p>
+<h2>
+<span style="font-size:24px"><img src="img/gmail.png" style="background:none; border:none; box-shadow:none; vertical-align:middle"/>  <a href="mailto:sdwfrost@gmail.com" target="_blank" style="vertical-align:middle">sdwfrost@gmail.com</a></span> <span style="font-size:24px"><img src="img/twitter-icon.png" style="background:none; border:none; box-shadow:none; vertical-align:middle"/>  <a href="http://www.twitter.com/sdwfrost" target="_blank" style="vertical-align:middle"><span class="citation" data-cites="sdwfrost">@sdwfrost</span></a></span> <span style="font-size:24px"><img src="img/GitHub-Mark-32px.png" style="background:none; border:none; box-shadow:none; vertical-align:middle"/>  <a href="http://github.com/sdwfrost" target="_blank" style="vertical-align:middle">http://github.com/sdwfrost</a></span>
+</h2>
+</section>
+    </div>
+  </div>
+
+  <script src="index_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="index_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "index_files/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

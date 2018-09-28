@@ -1,0 +1,42 @@
+firstlang,firstlangscale,secondlang,preference,implement,I would like to be included on a group publication
+R,4,Matlab/Octave,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,4,Python,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,1,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks,Maybe
+R,4,C++,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,4,Matlab/Octave,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,4,C++,To use the online platform provided by the meeting,Models from introductory textbooks;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Python,3,R,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,5,Python,To use the online platform provided by the meeting,Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,5,Julia,To use the online platform provided by the meeting,Models from publications;My own models,Maybe
+R,4,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Python,4,Julia,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+C,4,R,To use the online platform provided by the meeting,Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,3,Matlab/Octave,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Maybe
+Matlab/Octave,4,Python,To use the online platform provided by the meeting,My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+C++,4,Python,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;My own models,Yes
+Python,3,Javascript,To install Jupyter and/or Docker on my laptop prior to the meeting,Model classes listed on https://github.com/epirecipes/shopping-list/issues;Browser based simulations,Yes
+R,3,Julia,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Python,2,R,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Python,3,R,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Python,4,R,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,3,NA,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from publications,Yes
+R,3,NA,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,3,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Python,3,R,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications,Yes
+R,4,Python,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,4,C++,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Julia,5,NA,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,5,C++,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Maybe
+No preference,4,NA,To install Jupyter and/or Docker on my laptop prior to the meeting,"Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues;Once I've knocked out a few of the notebook models, I'd like to talk about options for implementing some template / standardization approaches in a library for people to use w/ R/Python/C/C++.",Yes
+R,4,Python,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,3,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,4,Python,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,5,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Matlab/Octave,4,R,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Matlab/Octave,4,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Matlab/Octave,4,Python,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Maybe
+R,4,C++,To use the online platform provided by the meeting,Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,4,NA,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+R,2,NA,To use the online platform provided by the meeting,Models from introductory textbooks;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Maybe
+R,3,Julia,To use the online platform provided by the meeting,Models from introductory textbooks;Models from publications;My own models;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
+Julia,4,Python,To install Jupyter and/or Docker on my laptop prior to the meeting,Models from introductory textbooks;Model classes listed on https://github.com/epirecipes/shopping-list/issues,Yes
