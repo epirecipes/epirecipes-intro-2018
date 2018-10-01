@@ -203,7 +203,7 @@ suppressPackageStartupMessages(library(ggplot2))
 - Running on a virtual server on Microsoft Azure
 - Available to download and run locally with minimal dependencies
 
-## Notebooks
+## 'Open' notebooks
 
 - *Jupyter notebooks*
     - Many languages
@@ -313,6 +313,63 @@ sir_sol = solve_ivp(
 
 </div>
 
+## R vs Julia
+
+<div>
+
+<div class="left">
+
+```{r,echo=TRUE,eval=FALSE}
+sir_ode <- function(times,init,parms){
+  with(as.list(c(parms,init)), {
+  # ODEs
+  dS <- -beta*S*I
+  dI <- beta*S*I-gamma*I
+  dR <- gamma*I
+  list(c(dS,dI,dR))
+  })
+}
+parms <- c(beta=0.1,gamma=0.05)
+init <- c(S=0.99,I=0.01,R=0) 
+times <- seq(0,200,length.out=2001)
+sir_out <- lsoda(init,
+                 times,
+                 sir_ode,
+                 parms)
+```
+
+</div>
+
+<div class="right">
+
+```
+sir_ode = @ode_def SIRModel begin
+    dS = -β*S*I
+    dI = β*S*I-γ*I
+    dR = γ*I
+end β γ
+parms = [0.1,0.05]
+init = [0.99,0.01,0.0]
+tspan = (0.0,200.0)
+sir_prob = ODEProblem(sir_ode,init,tspan,parms)
+sir_sol = solve(sir_prob)
+```
+
+</div>
+
+</div>
+
+## Why different languages?
+
+- If the differences in syntax are relatively minor, why consider other languages?
+- Some are better suited for some tasks than others
+    - Loops
+    - The 'two language' problem
+- Differences in the ecosystem
+- You should code in what you like, but it may be necessary to 'read' other languages
+- Interoperability is actually quite good
+    - R: reticulate, JuliaCall, XRpython, XRjulia
+
 ## Objectives for the workshop
 
 - I would like each of you to implement at least one model, ideally:
@@ -349,7 +406,7 @@ ggplot(x2,aes(x=Preference))+geom_bar(aes(fill=Preference))+coord_flip()+ylab("N
 - Stochastic (demographic/environmental) models
 - Age structured models
 - Spatial models
-- Network models
+- Network models (edge-based, pair approx.)
 - Non-exponential passage times
 - Disease-specific models
 
@@ -374,18 +431,13 @@ ggplot(x2,aes(x=Preference))+geom_bar(aes(fill=Preference))+coord_flip()+ylab("N
 
 ## Facilitators
 
-- James Lester
-    - Python, R, Matlab
-- Gerry Tonkin-Hill
-    - Python, R, Matlab, C++
-- Zhian Kamvar
-    - R
-- Rich Fitzjohn
-    - R
-- Chris Rackauckas
-    - Julia
-- Myself
-    - Everything else...
+- James Lester: Python, R, Matlab
+- Gerry Tonkin-Hill: Python, R, Matlab, C++
+- Zhian Kamvar: R
+- Rich Fitzjohn: R, C
+- Thibaut Jombart (from Tuesday): R
+- Chris Rackauckas: Julia
+- Myself: Everything else...
 
 ...plus anyone else who wants to help
 
@@ -406,15 +458,16 @@ ggplot(x2,aes(x=Preference))+geom_bar(aes(fill=Preference))+coord_flip()+ylab("N
 ## Social events
 
 - Monday 17:00-19:00: Drinks reception at ATI
-- Tuesday TBD: Dinner at Drake and Morgan
+- Tuesday 19:15: Dinner at Drake and Morgan
+    - Let me know if you can't make it
 
 ## During the workshop
 
 - Be social:
-    - Twitter: `#epirecipes2018` and follow `@epirecipes`
+    - Twitter: `#epirecipes` and follow `@epirecipes`
 - Be respectful:
     - ATI Code of Conduct: [https://www.turing.ac.uk/sites/default/files/2018-07/events_-_delegate_code_of_conduct_policy_v1.pdf](https://www.turing.ac.uk/sites/default/files/2018-07/events_-_delegate_code_of_conduct_policy_v1.pdf)
-    - DSG Code of Conduct: [http://bit.ly/DSGCodeOfConduct](http://bit.ly/DSGCodeOfConduct)
+    - Epirecipes Code of Conduct: [http://bit.ly/EpirecipesCodeOfConduct](http://bit.ly/EpirecipesCodeOfConduct)
 - Be inclusive:
     - Eric Holscher's 'PacMan rule'
 

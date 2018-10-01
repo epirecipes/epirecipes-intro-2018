@@ -696,8 +696,8 @@ Turing Fellow <span class="citation" data-cites="turinginst">@turinginst</span>
 <li>Available to download and run locally with minimal dependencies</li>
 </ul>
 </section>
-<section id="notebooks" class="slide level2">
-<h2>Notebooks</h2>
+<section id="open-notebooks" class="slide level2">
+<h2>‘Open’ notebooks</h2>
 <ul>
 <li><em>Jupyter notebooks</em>
 <ul>
@@ -795,6 +795,58 @@ sir_sol <span class="op">=</span> solve_ivp(
 </div>
 </div>
 </section>
+<section id="r-vs-julia" class="slide level2">
+<h2>R vs Julia</h2>
+<div>
+<div class="left">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sir_ode &lt;-<span class="st"> </span><span class="cf">function</span>(times,init,parms){
+  <span class="kw">with</span>(<span class="kw">as.list</span>(<span class="kw">c</span>(parms,init)), {
+  <span class="co"># ODEs</span>
+  dS &lt;-<span class="st"> </span><span class="op">-</span>beta<span class="op">*</span>S<span class="op">*</span>I
+  dI &lt;-<span class="st"> </span>beta<span class="op">*</span>S<span class="op">*</span>I<span class="op">-</span>gamma<span class="op">*</span>I
+  dR &lt;-<span class="st"> </span>gamma<span class="op">*</span>I
+  <span class="kw">list</span>(<span class="kw">c</span>(dS,dI,dR))
+  })
+}
+parms &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">beta=</span><span class="fl">0.1</span>,<span class="dt">gamma=</span><span class="fl">0.05</span>)
+init &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dt">S=</span><span class="fl">0.99</span>,<span class="dt">I=</span><span class="fl">0.01</span>,<span class="dt">R=</span><span class="dv">0</span>) 
+times &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">200</span>,<span class="dt">length.out=</span><span class="dv">2001</span>)
+sir_out &lt;-<span class="st"> </span><span class="kw">lsoda</span>(init,
+                 times,
+                 sir_ode,
+                 parms)</code></pre></div>
+</div>
+<div class="right">
+<pre><code>sir_ode = @ode_def SIRModel begin
+    dS = -β*S*I
+    dI = β*S*I-γ*I
+    dR = γ*I
+end β γ
+parms = [0.1,0.05]
+init = [0.99,0.01,0.0]
+tspan = (0.0,200.0)
+sir_prob = ODEProblem(sir_ode,init,tspan,parms)
+sir_sol = solve(sir_prob)</code></pre>
+</div>
+</div>
+</section>
+<section id="why-different-languages" class="slide level2">
+<h2>Why different languages?</h2>
+<ul>
+<li>If the differences in syntax are relatively minor, why consider other languages?</li>
+<li>Some are better suited for some tasks than others
+<ul>
+<li>Loops</li>
+<li>The ‘two language’ problem</li>
+</ul></li>
+<li>Differences in the ecosystem</li>
+<li>You should code in what you like, but it may be necessary to ‘read’ other languages</li>
+<li>Interoperability is actually quite good
+<ul>
+<li>R: reticulate, JuliaCall, XRpython, XRjulia</li>
+</ul></li>
+</ul>
+</section>
 <section id="objectives-for-the-workshop" class="slide level2">
 <h2>Objectives for the workshop</h2>
 <ul>
@@ -822,7 +874,7 @@ sir_sol <span class="op">=</span> solve_ivp(
 </section>
 <section id="results-from-survey" class="slide level2">
 <h2>Results from survey</h2>
-<p><img src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="672" border:0px; style="display: block; margin: auto;" /></p>
+<p><img src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="672" border:0px; style="display: block; margin: auto;" /></p>
 </section>
 <section id="potential-concepts" class="slide level2">
 <h2>Potential concepts</h2>
@@ -831,7 +883,7 @@ sir_sol <span class="op">=</span> solve_ivp(
 <li>Stochastic (demographic/environmental) models</li>
 <li>Age structured models</li>
 <li>Spatial models</li>
-<li>Network models</li>
+<li>Network models (edge-based, pair approx.)</li>
 <li>Non-exponential passage times</li>
 <li>Disease-specific models</li>
 </ul>
@@ -870,30 +922,13 @@ sir_sol <span class="op">=</span> solve_ivp(
 <section id="facilitators" class="slide level2">
 <h2>Facilitators</h2>
 <ul>
-<li>James Lester
-<ul>
-<li>Python, R, Matlab</li>
-</ul></li>
-<li>Gerry Tonkin-Hill
-<ul>
-<li>Python, R, Matlab, C++</li>
-</ul></li>
-<li>Zhian Kamvar
-<ul>
-<li>R</li>
-</ul></li>
-<li>Rich Fitzjohn
-<ul>
-<li>R</li>
-</ul></li>
-<li>Chris Rackauckas
-<ul>
-<li>Julia</li>
-</ul></li>
-<li>Myself
-<ul>
-<li>Everything else…</li>
-</ul></li>
+<li>James Lester: Python, R, Matlab</li>
+<li>Gerry Tonkin-Hill: Python, R, Matlab, C++</li>
+<li>Zhian Kamvar: R</li>
+<li>Rich Fitzjohn: R, C</li>
+<li>Thibaut Jombart (from Tuesday): R</li>
+<li>Chris Rackauckas: Julia</li>
+<li>Myself: Everything else…</li>
 </ul>
 <p>…plus anyone else who wants to help</p>
 </section>
@@ -917,7 +952,10 @@ sir_sol <span class="op">=</span> solve_ivp(
 <h2>Social events</h2>
 <ul>
 <li>Monday 17:00-19:00: Drinks reception at ATI</li>
-<li>Tuesday TBD: Dinner at Drake and Morgan</li>
+<li>Tuesday 19:15: Dinner at Drake and Morgan
+<ul>
+<li>Let me know if you can’t make it</li>
+</ul></li>
 </ul>
 </section>
 <section id="during-the-workshop" class="slide level2">
@@ -925,12 +963,12 @@ sir_sol <span class="op">=</span> solve_ivp(
 <ul>
 <li>Be social:
 <ul>
-<li>Twitter: <code>#epirecipes2018</code> and follow <code>@epirecipes</code></li>
+<li>Twitter: <code>#epirecipes</code> and follow <code>@epirecipes</code></li>
 </ul></li>
 <li>Be respectful:
 <ul>
 <li>ATI Code of Conduct: <a href="https://www.turing.ac.uk/sites/default/files/2018-07/events_-_delegate_code_of_conduct_policy_v1.pdf" class="uri">https://www.turing.ac.uk/sites/default/files/2018-07/events_-_delegate_code_of_conduct_policy_v1.pdf</a></li>
-<li>DSG Code of Conduct: <a href="http://bit.ly/DSGCodeOfConduct" class="uri">http://bit.ly/DSGCodeOfConduct</a></li>
+<li>Epirecipes Code of Conduct: <a href="http://bit.ly/EpirecipesCodeOfConduct" class="uri">http://bit.ly/EpirecipesCodeOfConduct</a></li>
 </ul></li>
 <li>Be inclusive:
 <ul>
